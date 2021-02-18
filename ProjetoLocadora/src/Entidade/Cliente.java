@@ -1,12 +1,12 @@
 
-package entidades;
+package Entidades;
 
 /**
  *
  * @author JULIO PASCHOAL
  */
 public class Cliente {
-    private int id;
+    private int id; 
     private String nome;
     private String email;
     private String telefone;
@@ -42,4 +42,4 @@ public class Cliente {
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
-}
+    }

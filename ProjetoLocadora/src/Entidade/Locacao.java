@@ -1,7 +1,9 @@
-package entidades;
 
-import java.util.Date;
+package Entidades;
+
 import java.util.ArrayList;
+import javafx.scene.chart.PieChart.Data;
+
 /**
  *
  * @author JULIO PASCHOAL
@@ -9,12 +11,10 @@ import java.util.ArrayList;
 public class Locacao {
     private int id;
     private double valor;
-    private Date data;
-    private ArrayList<ItemLocacao> itensLocacao;
+    private Data data;
+    private ArrayList<ItemLocacao> itensLocacao; 
     private Cliente cliente;
     private Usuario usuario;
-    
-    
 
     public int getId() {
         return id;
@@ -32,11 +32,11 @@ public class Locacao {
         this.valor = valor;
     }
 
-    public Date getData() {
+    public Data getData() {
         return data;
     }
 
-    public void setData(Date data) {
+    public void setData(Data data) {
         this.data = data;
     }
 

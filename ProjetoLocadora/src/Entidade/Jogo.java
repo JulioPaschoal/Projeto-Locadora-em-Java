@@ -1,5 +1,5 @@
 
-package entidades;
+package Entidades;
 
 /**
  *
@@ -7,7 +7,7 @@ package entidades;
  */
 public class Jogo extends Item{
     private int memoria;
-    private String tipo;
+    private String Tipo;
 
     public Jogo(Categoria categoria) {
         super(categoria);
@@ -22,10 +22,10 @@ public class Jogo extends Item{
     }
 
     public String getTipo() {
-        return tipo;
+        return Tipo;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setTipo(String Tipo) {
+        this.Tipo = Tipo;
     }
 }

@@ -1,13 +1,13 @@
 
-package entidades;
+package Entidades;
 
 /**
  *
  * @author JULIO PASCHOAL
  */
-public class Filme extends Item {
+public class Filme extends Item{
     private String diretor;
-    private int duracao;
+    private String duracao;
 
     public Filme(Categoria categoria) {
         super(categoria);
@@ -21,11 +21,11 @@ public class Filme extends Item {
         this.diretor = diretor;
     }
 
-    public int getDuracao() {
+    public String getDuracao() {
         return duracao;
     }
 
-    public void setDuracao(int duracao) {
+    public void setDuracao(String duracao) {
         this.duracao = duracao;
     }
 }

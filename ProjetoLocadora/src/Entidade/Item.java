@@ -1,19 +1,19 @@
-
-package entidades;
+package Entidades;
 
 /**
  *
  * @author JULIO PASCHOAL
  */
 public class Item {
+
     private int id;
     private String titulo;
     private String descricao;
     private double preco;
     private int numeroDias;
     private Categoria categoria;
-    
-    public Item(Categoria categoria){
+
+    public Item(Categoria categoria) {
         this.categoria = categoria;
     }
 
@@ -64,4 +64,5 @@ public class Item {
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
+
 }

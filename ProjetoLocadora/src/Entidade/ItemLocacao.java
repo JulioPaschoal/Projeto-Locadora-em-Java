@@ -1,5 +1,5 @@
 
-package entidades;
+package Entidades;
 
 /**
  *
@@ -42,4 +42,5 @@ public class ItemLocacao {
     public void setJogo(Jogo jogo) {
         this.jogo = jogo;
     }
+    
 }
