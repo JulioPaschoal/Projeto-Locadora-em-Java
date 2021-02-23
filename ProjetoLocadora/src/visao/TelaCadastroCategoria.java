@@ -11,9 +11,22 @@ import persistencia.CategoriaDAO;
 public class TelaCadastroCategoria extends javax.swing.JFrame {
 
     private Categoria categoria = new Categoria();
+    private TelaListaCategoria telaListagem;
 
-    public TelaCadastroCategoria() {
+    public TelaCadastroCategoria(TelaListaCategoria telaListagem) {
         initComponents();
+        this.telaListagem = telaListagem;
+    }
+
+    // METODO PARA ALTERA A CATEGORIA
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+        txtCategoria.setText(categoria.getNome());
+        if (categoria.getTipo() == 'F') {
+            rdbFilme.setSelected(true);
+        } else if (categoria.getTipo() == 'J') {
+            rdbJogo.setSelected(true);
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -28,7 +41,7 @@ public class TelaCadastroCategoria extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         btnCadastrar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("Cadastro de Categoria");
 
@@ -74,7 +87,7 @@ public class TelaCadastroCategoria extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(rdbJogo))
                             .addComponent(btnCadastrar))
-                        .addGap(0, 451, Short.MAX_VALUE)))
+                        .addGap(0, 251, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -112,29 +125,41 @@ public class TelaCadastroCategoria extends javax.swing.JFrame {
         }
         // INSERIR NO BANCO DE DADOS \\
         if (categoria.getTipo() != ' ') {
-            if (CategoriaDAO.inserir(categoria)) {
-                JOptionPane.showConfirmDialog(this, "Categoria Inserida com Sucesso");
+            if (categoria.getId() == 0) {
+                inserir();
             } else {
-                JOptionPane.showConfirmDialog(this, "Erro ao inserir categoria!");
+                alterar();
             }
         } else {
             JOptionPane.showConfirmDialog(this, "Selecione o tipo de categoria!");
         }
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
+    private void inserir() {
+        if (CategoriaDAO.inserir(categoria)) {
+            JOptionPane.showConfirmDialog(this, "Categoria Inserida com Sucesso");
+            telaListagem.montarListaCategoria();
+            dispose();// FECHAR A TELA DE CADASTRO \\
+        } else {
+            JOptionPane.showConfirmDialog(this, "Erro ao inserir categoria!");
+        }
+    }
+
+    private void alterar() {
+        if (CategoriaDAO.alterar(categoria)) {
+            JOptionPane.showConfirmDialog(this, "Categoria alterada com Sucesso");
+            telaListagem.montarListaCategoria();
+            dispose();// FECHAR A TELA DE CADASTRO \\
+        } else {
+            JOptionPane.showConfirmDialog(this, "Erro ao alterar categoria!");
+        }
+    }
+
     private void rdbJogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbJogoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_rdbJogoActionPerformed
 
-    public static void main(String args[]) {
-
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaCadastroCategoria().setVisible(true);
-            }
-        });
-    }
-
+//
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar;
     private javax.swing.ButtonGroup grpTipo;
