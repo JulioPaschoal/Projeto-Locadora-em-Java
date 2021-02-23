@@ -10,7 +10,7 @@ import persistencia.CategoriaDAO;
 public class TesteCategoria {
     public static void main(String[] args) {
         Categoria categoria = new Categoria();
-        categoria.setNome("Comedia");
+        categoria.setNome("Terror");
         categoria.setTipo('F'); // F FILMES || J JOGOS
         
          //CategoriaDAO.inserir(categoria);
@@ -18,6 +18,6 @@ public class TesteCategoria {
        //  System.out.println(CategoriaDAO.alterar(categoria));
       //  System.out.println(CategoriaDAO.exluir(13));
         
-        System.out.println(CategoriaDAO.listar());
+        //System.out.println(CategoriaDAO.listar());
     }
 }
